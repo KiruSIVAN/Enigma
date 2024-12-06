@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine Enigma</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #ecf0f1;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        max-width: 1200px;
+        height: auto;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        background-color: #e1e6ec;
+      }
+      .side {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #000000;
+        text-align: center;
+      }
+      label {
+        display: block;
+        font-size: 1.2rem;
+        margin: 10px 0 5px;
+        color: #000000;
+      }
+      input[type="text"] {
+        width: 80%;
+        max-width: 350px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #000000;
+        background-color: #ffffff;
+        color: #ecf0f1;
+        outline: none;
+        margin-bottom: 15px;
+      }
+      input[type="text"]::placeholder {
+        color: #7f8c8d;
+      }
+      .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #21686d;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+      #result {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: simple;
+        color: #000000;
+        text-align: center;
+      }
+      #positionsDisplay {
+        margin-top: 10px;
+        font-size: 1rem;
+        color: #000000;
+        text-align: center;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="side left">
+        <h1>Plugboard</h1>
+        <label for="plugboard">Connexions (ex : AB,CD) :</label>
+        <input
+          id="plugboard"
+          type="text"
+          placeholder="Entrez les connexions plugboard"
+        />
+        <button id="setPlugboardButton">Valider</button>
+      </div>
+      <div class="side right">
+        <h1>Machine Enigma</h1>
+        <label for="message">Message :</label>
+        <input id="message" type="text" placeholder="Entrez le message" /><br />
+        <div class="button-group">
+          <button id="chiffrerButton">Chiffrer</button>
+          <button id="dechiffrerButton">Déchiffrer</button>
+        </div>
+        <div id="positionsInput" class="hidden">
+          <label for="positions">Positions des rotors (ex : 4 10 5) :</label>
+          <input
+            id="positions"
+            type="text"
+            placeholder="Saisir les positions"
+          /><br />
+        </div>
+        <p id="result">Résultat :</p>
+        <p id="positionsDisplay">Positions :</p>
+      </div>
+    </div>
+    <script src="enigma.js"></script>
+  </body>
+</html>
